@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Produit;
 use App\Models\Categorie;
+use App\Models\Entreprise;
 use App\Models\Fournisseur;
 
 use Illuminate\Http\Request;
@@ -48,6 +49,8 @@ class ProduitController extends Controller
             'fournisseur' ,
             
         ]);
+
+        $entreprise= Entreprise::findOrFail(1)->get();
 
        //dd($request);
         // Gestion de l'images principal

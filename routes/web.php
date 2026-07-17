@@ -1,10 +1,18 @@
 <?php
 
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DepenseController;
+use App\Http\Controllers\DevisController;
+use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\FournisseurController;
-
+use App\Http\Controllers\MouvementStockController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecetteController;
+use App\Http\Controllers\VenteController;
+use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 
@@ -48,9 +56,21 @@ Route::middleware('auth')->group(function () {
 
 // Route Dashboard
 Route::middleware('auth')->group(function () {
-    Route::resource('/categorie', CategoriController::class);
+    // Route Inventaire
+    Route::resource('/categorie', CategorieController::class);
     Route::resource('/fournisseur', FournisseurController::class);
     Route::resource('/produit', ProduitController::class);
+    Route::resource('/stock', MouvementStockController::class);
+    // Route Commerciale
+    Route::resource('/devis', DevisController::class);
+    Route::resource('/client', ClientController::class);
+    Route::resource('/vente', VenteController::class);
+    // Route Finance
+    Route::resource('/paiement', PaiementController::class);
+    Route::resource('/recette', RecetteController::class);
+    Route::resource('/depense', DepenseController::class);
+    // Route Entreprise
+    Route::resource('/entreprise', EntrepriseController::class);
 });
 
 require __DIR__.'/auth.php';
