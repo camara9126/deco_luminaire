@@ -15,6 +15,7 @@ class VenteItem extends Model
         'montant_tva',
         'total_ttc',
         'total',
+        'designation'
     ];
 
     public function vente()

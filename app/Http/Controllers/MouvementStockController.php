@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MouvementStock;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class MouvementStockController extends Controller
@@ -11,7 +13,11 @@ class MouvementStockController extends Controller
      */
     public function index()
     {
-        //
+        $mouvements= MouvementStock::with('produit')->latest()->paginate(10);
+
+        $produits= Produit::latest()->get();
+
+        return view('dashboard.mouvementStocks.index', compact('mouvements','produits'));
     }
 
     /**
@@ -27,7 +33,33 @@ class MouvementStockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'produit_id' => 'required|exists:produits,id',
+            'quantite' => 'required|integer|min:1',
+            'type' => 'required',
+        ]);
+
+        $produit = Produit::findOrFail($request->produit_id);
+
+        MouvementStock::create([
+            'produit_id' => $produit->id,
+            'type' => $request->type,
+            'quantite' => $request->quantite,
+            'reference' => 'MVT-' . now()->timestamp,
+        ]);
+
+        if($request->type == 'entree') {
+
+
+            $produit->increment('stock', $request->quantite);
+
+            return back()->with('success', 'Entrée de stock enregistrée');
+        } else {
+
+            $produit->decrement('stock', $request->quantite);
+
+            return back()->with('success', 'Sortie de stock enregistrée');
+        }
     }
 
     /**

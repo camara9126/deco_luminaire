@@ -12,13 +12,9 @@ class DevisDetail extends Model
         'quantite',
         'prix_unitaire',
         'total',
+        'designation'
     ];
 
-    
-    public function details()
-    {
-        return $this->hasMany(DevisDetail::class);
-    }
 
     public function produit() {
         return $this->belongsTo(Produit::class);

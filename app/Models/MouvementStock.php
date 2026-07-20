@@ -11,6 +11,7 @@ class MouvementStock extends Model
         'type',
         'quantite',
         'reference',
+        'designation'
     ];
 
     public function produit()

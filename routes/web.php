@@ -63,8 +63,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('/stock', MouvementStockController::class);
     // Route Commerciale
     Route::resource('/devis', DevisController::class);
+    Route::get('devis/{devis}/facture', [DevisController::class, 'facture'])->name('devis.facture');
+    Route::get('devis/{devis}/valider', [DevisController::class, 'valider'])->name('devis.valider');
+    Route::get('devis/{devis}/refuser', [DevisController::class, 'refuser'])->name('devis.refuser');
+    Route::get('devis/{devis}/convertir', [DevisController::class, 'convertir'])->name('devis.convertir');
     Route::resource('/client', ClientController::class);
     Route::resource('/vente', VenteController::class);
+    Route::get('/factures', [VenteController::class, 'facture'])->name('factures');
+
     // Route Finance
     Route::resource('/paiement', PaiementController::class);
     Route::resource('/recette', RecetteController::class);
