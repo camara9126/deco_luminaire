@@ -355,7 +355,7 @@
       border-bottom: 3px solid var(--or-eclatant);
     }
     .service-content {
-      padding: 1.5rem;
+      padding: 1rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -389,13 +389,7 @@
       font-size: 0.8rem;
       margin-right: 0.5rem;
     }
-    
-    /* 2 colonnes sur tous les écrans */
-    .service-col {
-      flex: 0 0 auto;
-      width: 33%;
-      margin: auto;
-    }
+  
     
     /* Ajustements pour mobile */
     @media (max-width: 768px) {
@@ -603,9 +597,9 @@
         <h2 class="section-title">Nos trois univers pour vos projets</h2>
         <p class="section-subtitle">Des solutions complètes pour sublimer et équiper vos espaces.</p>
       </div>
-      <div class="row g-4">
+      <div class="row g-2">
         <!-- Service 1 -->
-        <div class="service-col">
+        <div class="col-md-4 col-6">
           <div class="service-card">
             <img src="images/decointerieure.jpg" alt="Décoration" class="service-img">
             <div class="service-content">
@@ -623,7 +617,7 @@
         </div>
         
         <!-- Service 2 -->
-        <div class="service-col">
+        <div class="col-md-4 col-6">
           <div class="service-card">
             <img src="images/servlumi.jpg" alt="Accessoires" class="service-img">
             <div class="service-content">
@@ -641,7 +635,7 @@
         </div>
         
         <!-- Service 3 -->
-        <div class="service-col">
+        <div class="col-md-4 col-6">
           <div class="service-card">
             <img src="images/quincail.jpg" alt="Événementiel" class="service-img">
             <div class="service-content">
