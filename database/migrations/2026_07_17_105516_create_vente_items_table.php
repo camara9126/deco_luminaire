@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('vente_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vente_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('produit_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('produit_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->string('designation')->nullable();
             $table->integer('quantite');
             $table->decimal('prix_unitaire', 10, 2);
             $table->decimal('montant_tva', 10, 2);

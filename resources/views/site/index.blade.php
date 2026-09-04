@@ -531,7 +531,7 @@
           <li class="nav-item"><a class="nav-link active" href="/">Accueil</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('boutique') }}">Boutique</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('apropos') }}">À propos</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="{{ route('apropos') }}">À propos</a></li> -->
           <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Admin</a></li>
           <li class="nav-item ms-2">
